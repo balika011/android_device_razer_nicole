@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+     SPDX-FileCopyrightText: The LineageOS Project
+     SPDX-License-Identifier: Apache-2.0
+-->
+<resources>
+    <string name="sim_slot_mappings_json">{\"sim-slot-mappings\":[{\"devices\":[\"RZ45-0460\"],\"esim-slot-ids\":[0],\"psim-slot-ids\":[]}]}</string>
+</resources>
