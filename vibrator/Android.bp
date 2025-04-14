@@ -2,7 +2,7 @@ Common_CFlags = ["-Wall"]
 Common_CFlags += ["-Werror"]
 
 cc_library_shared {
-    name: "vendor.qti.hardware.vibrator.impl.otter",
+    name: "vendor.qti.hardware.vibrator.impl.nicole",
     vendor: true,
     cflags: Common_CFlags,
     srcs: [
@@ -25,13 +25,13 @@ cc_library_shared {
 }
 
 cc_binary {
-    name: "vendor.qti.hardware.vibrator.service.otter",
+    name: "vendor.qti.hardware.vibrator.service.nicole",
     vendor: true,
     cflags: Common_CFlags,
     relative_install_path: "hw",
-    init_rc: ["vendor.qti.hardware.vibrator.service.otter.rc"],
+    init_rc: ["vendor.qti.hardware.vibrator.service.nicole.rc"],
     vintf_fragments: [
-        "vendor.qti.hardware.vibrator.service.otter.xml",
+        "vendor.qti.hardware.vibrator.service.nicole.xml",
     ],
     srcs: [
         "service.cpp",
@@ -42,6 +42,6 @@ cc_binary {
         "libbase",
         "libbinder_ndk",
         "android.hardware.vibrator-V2-ndk",
-        "vendor.qti.hardware.vibrator.impl.otter",
+        "vendor.qti.hardware.vibrator.impl.nicole",
     ],
 }

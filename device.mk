@@ -95,7 +95,6 @@ PRODUCT_PACKAGES += \
     android.hardware.camera.provider@2.4-service_64
 
 PRODUCT_COPY_FILES += \
-    frameworks/native/data/etc/android.hardware.camera.flash-autofocus.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.camera.flash-autofocus.xml \
     frameworks/native/data/etc/android.hardware.camera.front.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.camera.front.xml \
     frameworks/native/data/etc/android.hardware.camera.full.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.camera.full.xml \
     frameworks/native/data/etc/android.hardware.camera.raw.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.camera.raw.xml
@@ -372,7 +371,7 @@ PRODUCT_COPY_FILES += \
 
 # Vibrator
 PRODUCT_PACKAGES += \
-    vendor.qti.hardware.vibrator.service.otter
+    vendor.qti.hardware.vibrator.service.nicole
 
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/vibrator/excluded-input-devices.xml:$(TARGET_COPY_OUT_VENDOR)/etc/excluded-input-devices.xml
@@ -401,4 +400,4 @@ PRODUCT_PACKAGES += \
     firmware_wlan_mac.bin_symlink
 
 # Inherit from the proprietary files makefile.
-$(call inherit-product, vendor/shift/otter/otter-vendor.mk)
+$(call inherit-product, vendor/razer/nicole/nicole-vendor.mk)

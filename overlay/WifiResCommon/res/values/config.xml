@@ -67,5 +67,5 @@
     <string name="config_wifiSoftap2gChannelList" translatable="false" />
 
     <!-- Do not translate. Default access point SSID used for tethering -->
-    <string name="wifi_tether_configure_ssid_default" translatable="false">SHIFTphone 8</string>
+    <string name="wifi_tether_configure_ssid_default" translatable="false">Razer Edge</string>
 </resources>

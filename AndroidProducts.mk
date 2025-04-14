@@ -4,4 +4,4 @@
 #
 
 PRODUCT_MAKEFILES := \
-    $(LOCAL_DIR)/lineage_otter.mk
+    $(LOCAL_DIR)/lineage_nicole.mk

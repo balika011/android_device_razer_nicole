@@ -18,7 +18,7 @@ from extract_utils.main import (
 )
 
 namespace_imports = [
-    'device/shift/otter',
+    'device/razer/nicole',
     'hardware/qcom-caf/sm8350',
     'hardware/qcom-caf/wlan',
     'vendor/qcom/opensource/commonsys/display',
@@ -58,8 +58,8 @@ blob_fixups: blob_fixups_user_type = {
 }  # fmt: skip
 
 module = ExtractUtilsModule(
-    'otter',
-    'shift',
+    'nicole',
+    'razer',
     blob_fixups=blob_fixups,
     lib_fixups=lib_fixups,
     namespace_imports=namespace_imports,

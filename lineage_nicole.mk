@@ -8,8 +8,8 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/core_64_bit.mk)
 TARGET_SUPPORTS_OMX_SERVICE := false
 $(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
 
-# Inherit from otter device
-$(call inherit-product, device/shift/otter/device.mk)
+# Inherit from nicole device
+$(call inherit-product, device/razer/nicole/device.mk)
 
 # Inherit some common Lineage stuff.
 $(call inherit-product, vendor/lineage/config/common_full_phone.mk)
@@ -19,14 +19,14 @@ TARGET_SCREEN_HEIGHT := 2400
 TARGET_SCREEN_WIDTH := 1080
 
 # Device identifier. This must come after all inclusions.
-PRODUCT_NAME := lineage_otter
-PRODUCT_DEVICE := otter
-PRODUCT_BRAND := SHIFT
-PRODUCT_MODEL := SHIFTphone 8
-PRODUCT_MANUFACTURER := SHIFT
+PRODUCT_NAME := lineage_nicole
+PRODUCT_DEVICE := nicole
+PRODUCT_BRAND := Razer
+PRODUCT_MODEL := Edge
+PRODUCT_MANUFACTURER := Razer
 
-PRODUCT_GMS_CLIENTID_BASE := android-uniscope
+PRODUCT_GMS_CLIENTID_BASE := android-huaqin
 
 PRODUCT_BUILD_PROP_OVERRIDES += \
-    BuildFingerprint=SHIFT/otter/otter:14/SOS.6.2.20250624/20250624:user/release-keys \
-    DeviceProduct=otter
+    BuildFingerprint=Razer/Nicole/Razer-Edge-WiFi:12/SKQ1.211103.001/172:user/release-keys \
+    DeviceProduct=nicole
