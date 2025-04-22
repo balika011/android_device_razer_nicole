@@ -36,6 +36,7 @@ PRODUCT_PACKAGES += \
     audio.primary.lahaina \
     audio.r_submix.default \
     audio.usb.default \
+    audio_amplifier.lahaina \
     audioadsprpcd \
     liba2dpoffload \
     libbatterylistener \
