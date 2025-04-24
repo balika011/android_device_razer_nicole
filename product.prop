@@ -1,5 +1,25 @@
+# Audio
+aaudio.hw_burst_min_usec=2000
+aaudio.mmap_exclusive_policy=2
+aaudio.mmap_policy=2
+af.fast_track_multiplier=1
+audio.deep_buffer.media=true
+audio.offload.disable=1
+audio.offload.min.duration.secs=30
+audio.offload.track.enable=false
+audio.offload.video=true
+audio.sys.mute.latency.factor=2
+audio.sys.noisy.broadcast.delay=500
+audio.sys.offload.pstimeout.secs=3
+audio.sys.routing.latency=0
+media.stagefright.audio.deep=false
+ro.af.client_heap_size_kbyte=7168
+
 # e-SIM
 masterclear.allow_retain_esim_profiles_after_fdr=1
+
+# GMS
+ro.setupwizard.rotation_locked=true
 
 # System server
 arm64.memtag.process.system_server=off
