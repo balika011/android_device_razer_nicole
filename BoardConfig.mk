@@ -151,7 +151,6 @@ VENDOR_SECURITY_PATCH := 2024-03-05
 
 # SEPolicy
 include device/qcom/sepolicy_vndr/SEPolicy.mk
-BOARD_VENDOR_SEPOLICY_DIRS += $(DEVICE_PATH)/sepolicy/vendor
 
 # Verified Boot
 STOCK_SECURITY_PATCH := 2024-10-05 # Latest stock update available
