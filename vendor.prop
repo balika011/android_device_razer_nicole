@@ -149,6 +149,7 @@ ro.carrier=unknown
 ro.com.android.dataroaming=true
 
 # Display
+ro.bootanim.set_orientation_4630947039571902850=ORIENTATION_90
 vendor.display.comp_mask=0
 vendor.display.disable_excl_rect=0
 vendor.display.disable_excl_rect_partial_fb=1
