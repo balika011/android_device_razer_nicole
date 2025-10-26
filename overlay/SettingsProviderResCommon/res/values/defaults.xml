@@ -9,4 +9,10 @@
 
     <!-- Default for Settings.Global.DEVICE_NAME $1=MODEL-->
     <string name="def_device_name_simple" translatable="false">Razer Edge</string>
+
+    <!-- Default for auto rotation -->
+    <bool name="def_accelerometer_rotation">true</bool>
+
+    <!-- Default for Settings.System.USER_ROTATION -->
+    <integer name="def_user_rotation">1</integer>
 </resources>

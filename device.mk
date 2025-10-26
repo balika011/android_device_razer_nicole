@@ -233,6 +233,7 @@ PRODUCT_PACKAGES += \
     CarrierConfigResCommon \
     FrameworksResCommon \
     FrameworksResTarget \
+    Launcher3ResTarget \
     NcmTetheringOverlay \
     SettingsProviderResCommon \
     SettingsResCommon \
