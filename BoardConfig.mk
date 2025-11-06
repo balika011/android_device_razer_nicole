@@ -74,6 +74,7 @@ BOARD_KERNEL_CMDLINE := \
     androidboot.hardware=qcom \
     androidboot.memcg=1 \
     androidboot.usbcontroller=a600000.dwc3 \
+    androidboot.selinux=permissive \
     cgroup.memory=nokmem,nosocket \
     cgroup_disable=pressure \
     earlycon=msm_geni_serial,0x98c000 \
