@@ -154,6 +154,7 @@ BOOT_SECURITY_PATCH := 2023-02-01
 VENDOR_SECURITY_PATCH := 2023-02-01
 
 # SEPolicy
+include $(DEVICE_PATH)/sepolicy/SEPolicy.mk
 include device/qcom/sepolicy_vndr/SEPolicy.mk
 
 # Verified Boot

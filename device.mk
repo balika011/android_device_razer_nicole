@@ -173,6 +173,8 @@ PRODUCT_COPY_FILES += \
 PRODUCT_PACKAGES += \
     android.hardware.health-service.qti
 
+$(call soong_config_set,lineage_health,charging_control_charging_path,/sys/class/power_supply/battery//sys/class/qcom-battery/battcharge_input_suspend)
+
 # Init
 PRODUCT_PACKAGES += \
     fstab.qcom \
@@ -252,7 +254,7 @@ PRODUCT_USE_DYNAMIC_PARTITIONS := true
 PRODUCT_PACKAGES += \
     android.hardware.power-service-qti
 
-$(call soong_config_set,qtipower,tap_to_wake_node,/sys/devices/platform/soc/a94000.i2c/i2c-3/3-0038/fts_gesture_mode)
+$(call soong_config_set,qtipower,tap_to_wake_node,/sys/devices/platform/soc/a90000.spi/spi_master/spi0/spi0.0/fts_gesture_mode)
 
 # Public libraries
 PRODUCT_COPY_FILES += \
