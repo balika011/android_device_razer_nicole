@@ -1,0 +1,2 @@
+# Touchscreen
+genfscon sysfs /devices/platform/soc/a90000.spi/spi_master/spi0/spi0.0/fts_gesture_mode    u:object_r:vendor_sysfs_touchpanel:s0

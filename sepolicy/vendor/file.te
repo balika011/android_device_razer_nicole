@@ -1,0 +1,2 @@
+# Touchscreen
+type vendor_sysfs_touchpanel, fs_type, sysfs_type;
