@@ -257,6 +257,7 @@ telephony.lteOnCdmaDevice=1
 persist.sys.tsband=RM510QGLAAR13A03M4G_RZ
 persist.vendor.qfp=true
 rild.libpath=/vendor/lib64/hw/libquectel-ril.so
+ro.vendor.hacked.release=12
 ro.vendor.qspm.enable=true
 vendor.rild.libpath=/vendor/lib64/hw/libquectel-ril.so
 

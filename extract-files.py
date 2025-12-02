@@ -43,6 +43,8 @@ lib_fixups: lib_fixups_user_type = {
 }
 
 blob_fixups: blob_fixups_user_type = {
+    'vendor/lib64/hw/libquectel-ril.so': blob_fixup()
+        .binary_regex_replace(b'ro.build.version.release', b'ro.vendor.hacked.release'),
     'vendor/lib64/libwvhidl.so': blob_fixup()
         .add_needed('libcrypto_shim.so'),
 }  # fmt: skip
