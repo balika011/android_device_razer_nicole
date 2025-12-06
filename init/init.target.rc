@@ -213,3 +213,7 @@ service fan_control_turn_off /vendor/bin/fan_control 0
     user root
     disabled
     oneshot
+
+on property:gsm.version.ril-impl=Quectel_Android_RIL_Driver_V3.3.42-230109
+    write /sys/class/net/rmnet_mhi0/queues/rx-0/rps_cpus 0f
+    write /sys/class/net/rmnet_data0/queues/rx-0/rps_cpus f0
