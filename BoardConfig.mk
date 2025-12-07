@@ -32,6 +32,9 @@ TARGET_2ND_CPU_ABI := armeabi-v7a
 TARGET_2ND_CPU_ABI2 := armeabi
 TARGET_2ND_CPU_VARIANT := cortex-a76
 
+# Assertions
+TARGET_OTA_ASSERT_DEVICE := nicole,Razer-Edge-WiFi,RZ45-0460
+
 # Audio
 AUDIO_FEATURE_ENABLED_EXTENDED_COMPRESS_FORMAT := true
 AUDIO_FEATURE_ENABLED_EXT_AMPLIFIER := true
@@ -107,7 +110,7 @@ TARGET_MODULE_ALIASES += wlan.ko:qca_cld3_wlan.ko
 # Metadata
 BOARD_USES_METADATA_PARTITION := true
 
-# Partitions (Sizes)
+# Partitions (Sizes and mount points)
 BOARD_FLASH_BLOCK_SIZE := 262144 # (BOARD_KERNEL_PAGESIZE * 64)
 
 -include vendor/lineage/config/BoardConfigReservedSize.mk
@@ -120,6 +123,8 @@ BOARD_SUPER_PARTITION_SIZE := 8589934592
 BOARD_SUPER_PARTITION_GROUPS := qti_dynamic_partitions
 BOARD_QTI_DYNAMIC_PARTITIONS_PARTITION_LIST := odm product system system_ext vendor
 BOARD_QTI_DYNAMIC_PARTITIONS_SIZE := 8585740288
+
+BOARD_ROOT_EXTRA_FOLDERS := mnt/vendor/persist
 
 # Partitions (Other)
 BOARD_ODMIMAGE_FILE_SYSTEM_TYPE := ext4

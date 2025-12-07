@@ -26,7 +26,3 @@ PRODUCT_MODEL := Edge
 PRODUCT_MANUFACTURER := Razer
 
 PRODUCT_GMS_CLIENTID_BASE := android-huaqin
-
-PRODUCT_BUILD_PROP_OVERRIDES += \
-    BuildFingerprint=Razer/Nicole/Razer-Edge-WiFi:12/SKQ1.211103.001/172:user/release-keys \
-    DeviceProduct=nicole

@@ -240,26 +240,13 @@ persist.vendor.qteeconnector.retrying_interval=30
 persist.vendor.qteeconnector.retrying_timeout=2000
 
 # Radio
-persist.radio.multisim.config=ssss
-persist.vendor.radio.apm_sim_not_pwdn=1
-persist.vendor.radio.custom_ecc=1
 persist.vendor.radio.enableadvancedscan=true
-persist.vendor.radio.procedure_bytes=SKIP
-persist.vendor.radio.rat_on=combine
-persist.vendor.radio.sib16_support=1
-persist.vendor.radio.uicc_se_enabled=1
-ro.radio.noril=no
 ro.telephony.default_network=33,33
-ro.vendor.radio.noril=no
 telephony.lteOnCdmaDevice=1
 
 # RIL
-persist.sys.tsband=RM510QGLAAR13A03M4G_RZ
 persist.vendor.qfp=true
-rild.libpath=/vendor/lib64/hw/libquectel-ril.so
-ro.vendor.hacked.release=12
 ro.vendor.qspm.enable=true
-vendor.rild.libpath=/vendor/lib64/hw/libquectel-ril.so
 
 # Sensors
 persist.vendor.sensors.allow_non_default_discovery=true

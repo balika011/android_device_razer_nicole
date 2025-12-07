@@ -196,6 +196,8 @@ PRODUCT_PACKAGES += \
     init.target.rc \
     ueventd.qcom.rc
 
+$(call soong_config_set,libinit,vendor_init_lib,//$(LOCAL_PATH):libinit_nicole)
+
 # IPACM
 PRODUCT_PACKAGES += \
     ipacm \
