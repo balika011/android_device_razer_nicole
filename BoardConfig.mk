@@ -3,6 +3,8 @@
 # SPDX-License-Identifier: Apache-2.0
 #
 
+TARGET_OTA_ASSERT_DEVICE := nicole,Razer-Edge-WiFi,RZ45-0460
+
 DEVICE_PATH := device/razer/nicole
 
 # A/B
@@ -132,6 +134,7 @@ TARGET_COPY_OUT_ODM := odm
 TARGET_COPY_OUT_PRODUCT := product
 TARGET_COPY_OUT_SYSTEM_EXT := system_ext
 TARGET_COPY_OUT_VENDOR := vendor
+BOARD_ROOT_EXTRA_FOLDERS := mnt/vendor/persist
 
 # Platform
 BOARD_USES_QCOM_HARDWARE := true
