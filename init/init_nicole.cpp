@@ -36,6 +36,7 @@
 #include <sys/stat.h>
 #include <sys/types.h>
 #include <sys/sysmacros.h>
+#include <sys/mount.h>
 #include <linux/gpio.h>
 #include <algorithm>
 
@@ -49,9 +50,11 @@
 
 #include "vendor_init.h"
 #include "property_service.h"
+#include "util.h"
 
 using android::base::Trim;
 using android::base::ReadFileToString;
+using android::init::IsRecoveryMode;
 
 #define GPIO_VARIANT_ID_0	3
 #define GPIO_VARIANT_ID_1	6
@@ -290,6 +293,11 @@ static void set_variant()
 void vendor_load_properties()
 {
     LOG(INFO) << "Loading vendor specific properties";
+
+	if (IsRecoveryMode()) {
+		mkdir("/mnt/vendor/persist", 0755);
+		mount("/dev/block/by-name/persist", "/mnt/vendor/persist", "ext4", MS_NOATIME | MS_NOSUID | MS_NODEV, "barrier=1");
+	}
 
 	mknod("/dev/gpiochip0", S_IFCHR | S_IRUSR | S_IWUSR, makedev(254, 0));
 
