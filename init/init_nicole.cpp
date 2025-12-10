@@ -108,7 +108,7 @@ static int get_board_rev()
 	req.lineoffsets[0] = GPIO_BOARD_REV_0;
 	req.lineoffsets[1] = GPIO_BOARD_REV_1;
 	req.lineoffsets[2] = GPIO_BOARD_REV_2;
-	req.flags = GPIOHANDLE_REQUEST_INPUT;
+	req.flags = GPIOHANDLE_REQUEST_INPUT | GPIOHANDLE_REQUEST_BIAS_PULL_UP;
 	strcpy(req.consumer_label, "board_rev");
 	req.lines = 3;
 
@@ -170,7 +170,7 @@ static int get_variant_id()
 	req.lineoffsets[0] = GPIO_VARIANT_ID_0;
 	req.lineoffsets[1] = GPIO_VARIANT_ID_1;
 	req.lineoffsets[2] = GPIO_VARIANT_ID_2;
-	req.flags = GPIOHANDLE_REQUEST_INPUT;
+	req.flags = GPIOHANDLE_REQUEST_INPUT | GPIOHANDLE_REQUEST_BIAS_PULL_UP;
 	strcpy(req.consumer_label, "variant_id");
 	req.lines = 3;
 
