@@ -287,6 +287,19 @@ PRODUCT_COPY_FILES += \
 # Shipping API
 PRODUCT_SHIPPING_API_LEVEL := 31
 
+# SKU
+PRODUCT_PACKAGES += \
+    hardware.sku.5g.prop \
+    hardware.sku.wifi.prop
+
+DEVICE_SKUS := wifi
+
+PRODUCT_COPY_FILES += \
+$(foreach DEVICE_SKU, $(DEVICE_SKUS), \
+    $(LOCAL_PATH)/sku/permissions/unavail.android.hardware.telephony.euicc.xml:$(TARGET_COPY_OUT_ODM)/etc/permissions/sku_$(DEVICE_SKU)/unavail.android.hardware.telephony.euicc.xml \
+    $(LOCAL_PATH)/sku/permissions/unavail.android.hardware.telephony.gsm.xml:$(TARGET_COPY_OUT_ODM)/etc/permissions/sku_$(DEVICE_SKU)/unavail.android.hardware.telephony.gsm.xml \
+    $(LOCAL_PATH)/sku/permissions/unavail.android.hardware.telephony.ims.xml:$(TARGET_COPY_OUT_ODM)/etc/permissions/sku_$(DEVICE_SKU)/unavail.android.hardware.telephony.ims.xml
+
 # Soong namespaces
 PRODUCT_SOONG_NAMESPACES += \
     $(LOCAL_PATH)

@@ -1,0 +1,29 @@
+ro.product.device=Razer-Edge-WiFi
+ro.product.odm.device=Razer-Edge-WiFi
+ro.product.product.device=Razer-Edge-WiFi
+ro.product.system.device=Razer-Edge-WiFi
+ro.product.system_ext.device=Razer-Edge-WiFi
+ro.product.vendor.device=Razer-Edge-WiFi
+
+ro.product.model=Razer Edge WiFi
+ro.product.odm.model=Razer Edge WiFi
+ro.product.product.model=Razer Edge WiFi
+ro.product.system.model=Razer Edge WiFi
+ro.product.system_ext.model=Razer Edge WiFi
+ro.product.vendor.model=Razer Edge WiFi
+
+ro.product.name=Nicole
+ro.product.odm.name=Nicole
+ro.product.product.name=Nicole
+ro.product.system.name=Nicole
+ro.product.system_ext.name=Nicole
+ro.product.vendor.name=Nicole
+
+ro.build.fingerprint=Razer/Nicole/Razer-Edge-WiFi:12/SKQ1.211103.001/172:user/release-keys
+ro.product.build.fingerprint=Razer/Nicole/Razer-Edge-WiFi:12/SKQ1.211103.001/172:user/release-keys
+ro.system.build.fingerprint=Razer/Nicole/Razer-Edge-WiFi:12/SKQ1.211103.001/172:user/release-keys
+ro.system_ext.build.fingerprint=Razer/Nicole/Razer-Edge-WiFi:12/SKQ1.211103.001/172:user/release-keys
+ro.odm.build.fingerprint=Razer/Nicole/Razer-Edge-WiFi:11/RKQ1.211130.001/172:user/release-keys
+ro.vendor.build.fingerprint=Razer/Nicole/Razer-Edge-WiFi:11/RKQ1.211130.001/172:user/release-keys
+
+ro.radio.noril=1

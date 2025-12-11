@@ -183,87 +183,11 @@ static void set_variant()
 {
 	bool is_5g = get_variant_id() == 0;
 
-	std::string device = "Razer-Edge-WiFi";
-	std::string model = "Razer Edge WiFi";
-	std::string name = "Nicole";
-	std::string build_fingerprint = "Razer/Nicole/Razer-Edge-WiFi:12/SKQ1.211103.001/172:user/release-keys";
-	std::string odm_fingerprint = "Razer/Nicole/Razer-Edge-WiFi:11/RKQ1.211130.001/172:user/release-keys";
-
 	if (is_5g) {
-		device = "RZ45-0460";
-		model = "Razer Edge 5G";
-		name = "VZW-RZ45-0460";
-		build_fingerprint = "Razer/VZW-RZ45-0460/RZ45-0460:12/SKQ1.211103.001/155:user/release-keys";
-		odm_fingerprint = "Razer/VZW-RZ45-0460/RZ45-0460:11/RKQ1.211130.001/155:user/release-keys";
+		property_override("ro.boot.hardware.sku", "5g");
+	} else {
+		property_override("ro.boot.hardware.sku", "wifi");
 	}
-
-	const char *device_props[] = {
-		"ro.product.device",
-		"ro.product.odm.device",
-		"ro.product.product.device",
-		"ro.product.system.device",
-		"ro.product.system_ext.device",
-		"ro.product.vendor.device",
-	};
-
-	for (int i = 0; i < sizeof(device_props) / sizeof(device_props[0]); i++)
-		property_override(device_props[i], device.c_str());
-
-	const char *model_props[] = {
-		"ro.product.model",
-		"ro.product.odm.model",
-		"ro.product.product.model",
-		"ro.product.system.model",
-		"ro.product.system_ext.model",
-		"ro.product.vendor.model",
-	};
-
-	for (int i = 0; i < sizeof(model_props) / sizeof(model_props[0]); i++)
-		property_override(model_props[i], model.c_str());
-
-	const char *name_props[] = {
-		"ro.product.name",
-		"ro.product.odm.name",
-		"ro.product.product.name",
-		"ro.product.system.name",
-		"ro.product.system_ext.name",
-		"ro.product.vendor.name",
-	};
-
-	for (int i = 0; i < sizeof(name_props) / sizeof(name_props[0]); i++)
-		property_override(name_props[i], name.c_str());
-
-	const char *build_fingerprint_props[] = {
-		"ro.build.fingerprint",
-		"ro.product.build.fingerprint",
-		"ro.system.build.fingerprint",
-		"ro.system_ext.build.fingerprint",
-	};
-
-	for (int i = 0; i < sizeof(build_fingerprint_props) / sizeof(build_fingerprint_props[0]); i++)
-		property_override(build_fingerprint_props[i], build_fingerprint.c_str());
-
-	const char *odm_fingerprint_props[] = {
-		"ro.odm.build.fingerprint",
-		"ro.vendor.build.fingerprint",
-	};
-
-	for (int i = 0; i < sizeof(odm_fingerprint_props) / sizeof(odm_fingerprint_props[0]); i++)
-		property_override(odm_fingerprint_props[i], odm_fingerprint.c_str());
-
-	if (is_5g) {
-		property_override("vendor.rild.libpath", "/vendor/lib64/hw/libquectel-ril.so");
-		property_override("rild.libpath", "/vendor/lib64/hw/libquectel-ril.so");
-		property_override("persist.vendor.radio.uicc_se_enabled", "1");
-		property_override("persist.radio.multisim.config", "ssss");
-
-		property_override("persist.vendor.radio.apm_sim_not_pwdn", "1");
-		property_override("persist.vendor.radio.sib16_support", "1");
-		property_override("persist.vendor.radio.custom_ecc", "1");
-		property_override("persist.vendor.radio.procedure_bytes", "SKIP");
-		property_override("persist.vendor.radio.rat_on", "combine");
-	} else
-		property_override("ro.radio.noril", "1");
 }
 
 void vendor_load_properties()

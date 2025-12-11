@@ -66,6 +66,9 @@ DEVICE_FRAMEWORK_COMPATIBILITY_MATRIX_FILE += \
 DEVICE_MANIFEST_FILE := $(DEVICE_PATH)/manifest_lahaina.xml
 DEVICE_MATRIX_FILE := hardware/qcom-caf/common/compatibility_matrix.xml
 
+ODM_MANIFEST_SKUS += 5g
+ODM_MANIFEST_5G_FILES := $(DEVICE_PATH)/sku/vintf/manifest_5g.xml
+
 # Kernel
 BOARD_BOOT_HEADER_VERSION := 3
 BOARD_KERNEL_BASE := 0x00000000

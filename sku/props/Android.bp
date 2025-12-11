@@ -1,0 +1,16 @@
+//
+// SPDX-FileCopyrightText: The LineageOS Project
+// SPDX-License-Identifier: Apache-2.0
+//
+
+prebuilt_etc {
+    name: "hardware.sku.5g.prop",
+    src: "hardware.sku.5g.prop",
+    product_specific: true,
+}
+
+prebuilt_etc {
+    name: "hardware.sku.wifi.prop",
+    src: "hardware.sku.wifi.prop",
+    product_specific: true,
+}
