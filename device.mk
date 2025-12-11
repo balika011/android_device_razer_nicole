@@ -298,7 +298,7 @@ PRODUCT_COPY_FILES += \
 $(foreach DEVICE_SKU, $(DEVICE_SKUS), \
     $(LOCAL_PATH)/sku/permissions/unavail.android.hardware.telephony.euicc.xml:$(TARGET_COPY_OUT_ODM)/etc/permissions/sku_$(DEVICE_SKU)/unavail.android.hardware.telephony.euicc.xml \
     $(LOCAL_PATH)/sku/permissions/unavail.android.hardware.telephony.gsm.xml:$(TARGET_COPY_OUT_ODM)/etc/permissions/sku_$(DEVICE_SKU)/unavail.android.hardware.telephony.gsm.xml \
-    $(LOCAL_PATH)/sku/permissions/unavail.android.hardware.telephony.ims.xml:$(TARGET_COPY_OUT_ODM)/etc/permissions/sku_$(DEVICE_SKU)/unavail.android.hardware.telephony.ims.xml
+    $(LOCAL_PATH)/sku/permissions/unavail.android.hardware.telephony.ims.xml:$(TARGET_COPY_OUT_ODM)/etc/permissions/sku_$(DEVICE_SKU)/unavail.android.hardware.telephony.ims.xml)
 
 # Soong namespaces
 PRODUCT_SOONG_NAMESPACES += \
