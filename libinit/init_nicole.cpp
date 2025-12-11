@@ -28,9 +28,12 @@
 #include "property_service.h"
 #include "util.h"
 
-using android::base::Trim;
 using android::base::ReadFileToString;
+using android::base::StartsWith;
+using android::base::Trim;
 using android::init::IsRecoveryMode;
+using android::init::kRestoreconProperty;
+using android::init::ReadFile;
 
 #define GPIO_VARIANT_ID_0	3
 #define GPIO_VARIANT_ID_1	6
@@ -76,7 +79,7 @@ static void set_serial()
 
 static int get_board_rev()
 {
-	int fd = open("/dev/gpiochip0", O_WRONLY, 0777);
+	int fd = open("/dev/gpiochip0", O_WRONLY);
 
 	struct gpiohandle_request req;
 	memset(&req, 0, sizeof(req));
@@ -138,7 +141,7 @@ static void set_board_rev()
 
 static int get_variant_id()
 {
-	int fd = open("/dev/gpiochip0", O_WRONLY, 0777);
+	int fd = open("/dev/gpiochip0", O_WRONLY);
 
 	struct gpiohandle_request req;
 	memset(&req, 0, sizeof(req));
@@ -179,15 +182,88 @@ static int get_variant_id()
 	return data.values[0] | (data.values[1] << 1) | (data.values[2] << 2);
 }
 
+static void LoadProperties(char* data, const char* filter, const char* filename,
+                           std::map<std::string, std::string>* properties) {
+    char *key, *value, *eol, *sol, *tmp, *fn;
+    size_t flen = 0;
+
+    if (filter) {
+        flen = strlen(filter);
+    }
+
+    sol = data;
+    while ((eol = strchr(sol, '\n'))) {
+        key = sol;
+        *eol++ = 0;
+        sol = eol;
+
+        while (isspace(*key)) key++;
+        if (*key == '#') continue;
+
+        tmp = eol - 2;
+        while ((tmp > key) && isspace(*tmp)) *tmp-- = 0;
+
+		value = strchr(key, '=');
+		if (!value) continue;
+		*value++ = 0;
+
+		tmp = value - 2;
+		while ((tmp > key) && isspace(*tmp)) *tmp-- = 0;
+
+		while (isspace(*value)) value++;
+
+		if (flen > 0) {
+			if (filter[flen - 1] == '*') {
+				if (strncmp(key, filter, flen - 1) != 0) continue;
+			} else {
+				if (strcmp(key, filter) != 0) continue;
+			}
+		}
+
+		if (StartsWith(key, "ctl.") || std::string{key} == "sys.powerctl" ||
+			std::string{key} == kRestoreconProperty) {
+			LOG(ERROR) << "Ignoring disallowed property '" << key
+						<< "' with special meaning in prop file '" << filename << "'";
+			continue;
+		}
+
+		ucred cr = {.pid = 1, .uid = 0, .gid = 0};
+		std::string error;
+		auto it = properties->find(key);
+		if (it == properties->end()) {
+			(*properties)[key] = value;
+		} else if (it->second != value) {
+			LOG(WARNING) << "Overriding previous property '" << key << "':'" << it->second
+							<< "' with new value '" << value << "'";
+			it->second = value;
+		}
+    }
+}
+
+static Result<void> load_properties_from_file(const char* filename, const char* filter,
+                                              std::map<std::string, std::string>* properties) {
+    auto file_contents = ReadFile(filename);
+    if (!file_contents.ok()) {
+        return Error() << "Couldn't load property file '" << filename
+                       << "': " << file_contents.error();
+    }
+    file_contents->push_back('\n');
+
+    LoadProperties(file_contents->data(), filter, filename, properties);
+    return {};
+}
+
 static void set_variant()
 {
-	bool is_5g = get_variant_id() == 0;
+	std::string sku = get_variant_id() == 0 ? "5g" : "wifi";
 
-	if (is_5g) {
-		property_override("ro.boot.hardware.sku", "5g");
-	} else {
-		property_override("ro.boot.hardware.sku", "wifi");
-	}
+	property_override("ro.boot.hardware.sku", sku.c_str());
+
+	std::map<std::string, std::string> properties;
+	load_properties_from_file(("/product/etc/hardware.sku." + sku + ".prop").c_str(), nullptr, &properties);
+
+	for (const auto& [name, value] : properties)
+		property_override(name.c_str(), value.c_str());
 }
 
 void vendor_load_properties()
