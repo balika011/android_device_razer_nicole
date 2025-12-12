@@ -286,3 +286,6 @@ wifi.aware.interface=wifi-aware0
 
 # Zygote
 zygote.critical_window.minute=10
+
+# SKU specific properties
+import /vendor/etc/hardware.sku.${ro.boot.hardware.sku}.prop
