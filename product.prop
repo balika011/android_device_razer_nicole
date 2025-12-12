@@ -26,3 +26,6 @@ arm64.memtag.process.system_server=off
 
 # Voice assistant
 ro.opa.eligible_device=true
+
+# SKU specific properties
+import /product/etc/hardware.sku.${ro.boot.hardware.sku}.prop
